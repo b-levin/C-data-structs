@@ -43,6 +43,7 @@ int add(struct sLinkedList* list, int item, int index) {
         //iterate through linkedlist until one before index
         while (pos != (index-1)) {
             current = current->next;
+            pos++;
         }
         struct Node* next = current->next;
         current->next = newNode;
@@ -57,14 +58,36 @@ int removeNode(struct sLinkedList* list, int index) {
     return -1;
 }
 
-//gets value of item at index
+//gets value of item at index. Returns value or NULL on error
 int get(struct sLinkedList* list, int index) {
-    return -1;
+    if (index < 0 || list->size < index) {
+        puts("Error: index invalid");
+        exit(1);
+    } else {
+        struct Node* current = list->head;
+        int pos = 0;
+        while (pos != index) {
+            current = current->next;
+            pos++;
+        }
+        return current->value;
+    }
 }
 
-//sets the value of item and index to new item
+//sets the value of item and index to new item. Return pos on success, -1 otherwise
 int set(struct sLinkedList* list, int index, int item) {
-    return -1;
+    if (index < 0 || list->size < index) {
+        return -1;
+    } else {
+        struct Node* current = list->head;
+        int pos = 0;
+        while (pos != index) {
+            current = current->next;
+            pos++;
+        }
+        current->value = item;
+        return pos;
+    }
 }
 
 //returns the size of the linked list
@@ -91,5 +114,5 @@ void printSLL(struct sLinkedList* list) {
 
 //frees the linkedlist
 void freeSLL(struct sLinkedList* list) {
-    return NULL;
+    //
 }

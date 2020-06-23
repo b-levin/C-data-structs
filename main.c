@@ -5,8 +5,12 @@
 
 int main(int argc, char **argv) {
     struct sLinkedList* test = initSLL();
-    add(test, 33, 0);
-    add(test, 22, 1);
+    for (int i = 0; i < 6; i++) {
+        add(test, i, i);
+    }
     printSLL(test);
+    set(test, 6, 1);
+    printSLL(test);
+    printf("%d\n", get(test, 1));
     return 0;
 }
