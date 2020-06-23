@@ -1,6 +1,6 @@
 # C Data Structures
 
-A library of data structures for the C language. All of the data structures use ints for the type of variable being stored.
+A library of data structures for the C language. All of the data structures use ints for the type of variable being stored (might switch to generics `void *`).
 
 ## Instructions;
 

@@ -5,7 +5,8 @@
 
 int main(int argc, char **argv) {
     struct sLinkedList* test = initSLL();
-    puts("worked");
-    free(test);
+    add(test, 33, 0);
+    add(test, 22, 1);
+    printSLL(test);
     return 0;
 }
